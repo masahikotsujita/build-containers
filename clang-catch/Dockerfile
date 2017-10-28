@@ -8,5 +8,6 @@ RUN apt update \
 
 RUN wget https://github.com/philsquared/Catch/archive/v1.10.0.tar.gz \
     && tar -zxvf v1.10.0.tar.gz \
-    && cp -rf Catch-1.10.0/include/* /usr/local/include/
+    && mkdir /usr/local/include/catch
+    && cp -rf Catch-1.10.0/include/* /usr/local/include/catch/
 
