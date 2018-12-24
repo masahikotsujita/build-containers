@@ -30,7 +30,6 @@ RUN svn co http://llvm.org/svn/llvm-project/llvm/tags/RELEASE_701/final llvm \
     && cd ../.. \
     && mkdir build \
     && cd build \
-    && ./configure --prefix=$HOME \
     && cmake -G "Unix Makefiles" \
         -DCMAKE_BUILD_TYPE=Release \
         ../llvm \
