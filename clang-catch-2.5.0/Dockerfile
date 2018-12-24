@@ -9,4 +9,4 @@ RUN apt update \
 RUN wget https://github.com/catchorg/Catch2/archive/v2.5.0.tar.gz \
     && tar -zxvf v2.5.0.tar.gz \
     && mkdir /usr/local/include/catch2 \
-    && cp -rf Catch2-2.5.0/include/* /usr/local/include/catch2/
+    && cp -rf Catch2-2.5.0/single_include/catch2/* /usr/local/include/catch2/
