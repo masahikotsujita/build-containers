@@ -16,6 +16,18 @@ RUN apt-get update && apt-get install -y \
     echo 'export PATH=/clang_10.0.0/bin:$PATH' >> ~/.bashrc && \
     echo 'export LD_LIBRARY_PATH=/clang_10.0.0/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
 
+# Install CMake 3.4.3
+ENV PATH $HOME/bin:$PATH
+ENV LD_LIBRARY_PATH $HOME/lib/:$LD_LIBRARY_PATH
+RUN wget https://cmake.org/files/v3.4/cmake-3.4.3.tar.gz \
+    && tar xvfz cmake-3.4.3.tar.gz \
+    && cd cmake-3.4.3/ \
+    && ./configure --prefix=$HOME \
+    && ./bootstrap \
+    && make \
+    && make install \
+    && cmake --version
+
 # Install Catch2
 RUN curl -O https://github.com/catchorg/Catch2/releases/download/v2.13.0/catch.hpp \
     && mkdir /usr/local/include/catch2 \
