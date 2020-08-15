@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install -y \
     echo 'export LD_LIBRARY_PATH=/clang_10.0.0/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
 
 # Install Catch2
-RUN wget https://github.com/catchorg/Catch2/releases/download/v2.13.0/catch.hpp \
+RUN curl -O https://github.com/catchorg/Catch2/releases/download/v2.13.0/catch.hpp \
     && mkdir /usr/local/include/catch2 \
     && cp -rf catch.hpp /usr/local/include/catch2/
 
