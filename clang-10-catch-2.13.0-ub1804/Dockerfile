@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y \
 # Install CMake 3.4.3
 ENV PATH $HOME/bin:$PATH
 ENV LD_LIBRARY_PATH $HOME/lib/:$LD_LIBRARY_PATH
-RUN curl -O https://cmake.org/files/v3.4/cmake-3.4.3.tar.gz \
+RUN curl -LO https://cmake.org/files/v3.4/cmake-3.4.3.tar.gz \
     && tar xvfz cmake-3.4.3.tar.gz \
     && cd cmake-3.4.3/ \
     && ./configure --prefix=$HOME \
@@ -29,7 +29,7 @@ RUN curl -O https://cmake.org/files/v3.4/cmake-3.4.3.tar.gz \
     && cmake --version
 
 # Install Catch2
-RUN curl -O https://github.com/catchorg/Catch2/releases/download/v2.13.0/catch.hpp \
+RUN curl -LO https://github.com/catchorg/Catch2/releases/download/v2.13.0/catch.hpp \
     && mkdir /usr/local/include/catch2 \
     && cp -rf catch.hpp /usr/local/include/catch2/
 
