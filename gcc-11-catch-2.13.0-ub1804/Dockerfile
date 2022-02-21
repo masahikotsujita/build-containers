@@ -14,7 +14,13 @@ RUN apt update && apt install -y \
 RUN apt update \
     && apt install -y software-properties-common \
     && add-apt-repository -y ppa:ubuntu-toolchain-r/test \
-    && apt install -y gcc-11
+    && apt install -y gcc-11 g++-11
+
+# Set GCC11 as default GCC
+RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 20 \
+    && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-11 20 \
+    && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 10 \
+    && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 10 \
 
 # Install CMake 3.4.3
 ENV PATH $HOME/bin:$PATH
