@@ -20,7 +20,7 @@ RUN apt update \
 RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 20 \
     && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-11 20 \
     && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 10 \
-    && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 10 \
+    && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 10
 
 # Install CMake 3.4.3
 ENV PATH $HOME/bin:$PATH
