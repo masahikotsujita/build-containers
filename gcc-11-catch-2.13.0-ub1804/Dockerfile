@@ -4,9 +4,17 @@
 # Use Ubuntu 18.04
 FROM ubuntu:18.04
 
+# Install Utilities
+RUN apt update && apt install -y \
+    xz-utils \
+    build-essential \
+    curl
+
 # Install GCC11
-RUN sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
-    sudo apt install -y gcc-11
+RUN apt update \
+    && apt install -y software-properties-common \
+    && add-apt-repository -y ppa:ubuntu-toolchain-r/test \
+    && apt install -y gcc-11
 
 # Install CMake 3.4.3
 ENV PATH $HOME/bin:$PATH
